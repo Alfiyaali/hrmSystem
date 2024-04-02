@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import BackgroundImage from "../../assets/images/bg-image.jpg";
+import BackgroundImage from '../images/bg-images.jpg'
+import { Link } from "react-router-dom";
+
+
 
 function Login() {
   const [formData, setFormData] = useState({
+    fullName: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -30,11 +35,17 @@ function Login() {
 
   const validateForm = (data) => {
     let errors = {};
+    if (!data.fullName.trim()) {
+      errors.fullName = "Full name is required";
+    }
     if (!data.email.trim()) {
       errors.email = "Email is required";
     }
     if (!data.password.trim()) {
       errors.password = "Password is required";
+    }
+    if (data.password !== data.confirmPassword) {
+      errors.confirmPassword = "Passwords do not match";
     }
     return errors;
   };
@@ -65,6 +76,28 @@ function Login() {
                 <span style={{ color: "red" }}>{errors.email}</span>
               )}
             </div>
+            {/* <div className=" mt-2 py-2">
+              <label htmlFor="User-Type" className="mt-2">
+                User
+              </label>
+              <div className="mt-2 font-semibold">
+                <select
+                  id="User"
+                  name="User"
+                  className="block w-full border-b-2 border-b-grey-950 rounded-md py-2.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black-600 sm:text-sm sm:leading-6"
+                >
+                  <option className="font-semibold" value="Employee">
+                    Employee
+                  </option>
+                  <option className="font-semibold" value="Admin">
+                    Admin
+                  </option>
+                  <option className="font-semibold" value="Super Admin">
+                    Super Admin
+                  </option>
+                </select>
+              </div>
+            </div> */}
             <div className="">
               <label htmlFor="password" className="py-5">
                 Password:
@@ -82,8 +115,9 @@ function Login() {
                 <span style={{ color: "red" }}>{errors.password}</span>
               )}
             </div>
+            <br />
 
-            <div class="flex items-center mb-4">
+            {/* <div class="flex items-center mb-4">
               <input
                 id="default-checkbox"
                 type="checkbox"
@@ -96,13 +130,15 @@ function Login() {
               >
                I agree to all statements include in terms and conditions
               </label>
-            </div>
+            </div> */}
             <div className="mt-2">
-              <button type="submit" className="px-8 py-2 bg-sky-400 text-white">
-                Login
+              <button type="submit"  className="px-8 py-2 bg-sky-400 rounded-md text-white">
+               <Link to="/dashboard"> Login</Link>
+
               </button>
 
-              <a href="" className="text-xs text-blue-500 ml-10">Forgot Password?</a>
+             <a href="/" className="text-xs text-blue-500 ml-10">Don't have an account?
+Register</a>
             </div>
           </form>
         </div>

@@ -1,55 +1,56 @@
 import React, { useState } from "react";
-import BackgroundImage from "../../assets/images/bg-image.jpg";
-import Login from "../Login/Login";
+
+import { Link } from "react-router-dom";
+import BackgroundImage from '../images/bg-image.jpg'
 
 function RegistrationForm() {
-    const [formData, setFormData] = useState({
-        fullName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-    
-      const [errors, setErrors] = useState({});
-      const [showLogin, setShowLogin] = useState(false); // State variable for showing Login component
-    
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value,
-        });
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        const errors = validateForm(formData);
-        if (Object.keys(errors).length === 0) {
-          // Submit form data to backend or perform further actions
-          console.log("Form submitted:", formData);
-          // Show the Login component after successful registration
-          setShowLogin(true);
-        } else {
-          setErrors(errors);
-        }
-      };
-    
-      const validateForm = (data) => {
-        let errors = {};
-        if (!data.fullName.trim()) {
-          errors.fullName = "Full name is required";
-        }
-        if (!data.email.trim()) {
-          errors.email = "Email is required";
-        }
-        if (!data.password.trim()) {
-          errors.password = "Password is required";
-        }
-        if (data.password !== data.confirmPassword) {
-          errors.confirmPassword = "Passwords do not match";
-        }
-        return errors;
-      };
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    mobileNumber:"",
+    password: "",
+    confirmPassword: "",
+    defaultCheckbox:"",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = validateForm(formData);
+    if (Object.keys(errors).length === 0) {
+      // Submit form data to backend or perform further actions
+      console.log("Form submitted:", formData);
+    } else {
+      setErrors(errors);
+    }
+  };
+
+  const validateForm = (data) => {
+    let errors = {};
+    if (!data.fullName.trim()) {
+      errors.fullName = "Full name is required";
+    }
+    if (!data.email.trim()) {
+      errors.email = "Email is required";
+    }
+    if (!data.password.trim()) {
+      errors.password = "Password is required";
+    }
+    if (data.password !== data.confirmPassword) {
+      errors.confirmPassword = "Passwords do not match";
+    }
+    return errors;
+  };
+
   return (
     <div className="mx-0 py-0 bg-sky-50">
       <div className="cont flex w-[100%] mx-auto h-auto py-20 px-20">
@@ -95,24 +96,21 @@ function RegistrationForm() {
             </div>
             <div className=" mt-2 py-2">
               <label htmlFor="User-Type" className="mt-2">
-                User
+                Mobile Number:
               </label>
               <div className="mt-2 font-semibold">
-                <select
-                  id="User"
-                  name="User"
-                  className="block w-full border-b-2 border-b-grey-950 rounded-md py-2.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black-600 sm:text-sm sm:leading-6"
-                >
-                  <option className="font-semibold" value="Employee">
-                    Employee
-                  </option>
-                  <option className="font-semibold" value="Admin">
-                    Admin
-                  </option>
-                  <option className="font-semibold" value="Super Admin">
-                    Super Admin
-                  </option>
-                </select>
+              <input
+                className="mt-2 block w-full border-b-2 border-b-grey-950 rounded-md py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black-600 sm:text-sm sm:leading-6"
+                type="tel"
+                id="mobileNumber"
+                name="mobileNumber"
+                required
+                value={formData.mobileNumber}
+                onChange={handleChange}
+              />
+              {errors.mobileNumber && (
+                <span style={{ color: "red" }}>{errors.mobileNumber}</span>
+              )}
               </div>
             </div>
             <div className="">
@@ -125,6 +123,7 @@ function RegistrationForm() {
                 type="password"
                 id="password"
                 name="password"
+                required
                 value={formData.password}
                 onChange={handleChange}
               />
@@ -142,6 +141,7 @@ function RegistrationForm() {
                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
+                required
                 value={formData.confirmPassword}
                 onChange={handleChange}
               />
@@ -155,6 +155,7 @@ function RegistrationForm() {
                 id="default-checkbox"
                 type="checkbox"
                 value=""
+                required
                 className="mt-2 block border-b-2 border-b-grey-950 rounded-md py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black-600 sm:text-sm sm:leading-6"
               />
               <label
@@ -165,16 +166,13 @@ function RegistrationForm() {
               </label>
             </div>
             <div className="mt-2">
-              <button type="submit" className="px-8 py-2 bg-sky-400 text-white">
-                Register
+              <button type="submit" className="px-8 py-2 rounded-md bg-sky-400 text-white">
+               <Link to="/login"> Register</Link>
               </button>
 
-              <a href="#" className="text-xs text-blue-500 ml-10" onClick={() => setShowLogin(true)}>I am already a member</a>
+              <a href="/login" className="text-xs text-blue-500 ml-10">I am already a member</a>
             </div>
           </form>
-
-           {/* Conditionally render the Login component based on the state */}
-           {showLogin && <Login />}
         </div>
       </div>
     </div>
