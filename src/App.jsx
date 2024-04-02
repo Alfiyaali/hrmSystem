@@ -1,7 +1,8 @@
 import React from 'react'
 
-import RegistrationForm from './assets/RegistrationForm'
-import Login from './assets/Login'
+import RegistrationForm from './components/Registration/RegistrationForm';
+import Login from './components/Login/Login';
+import Dashboard from './components/Dashboard/Dashboard';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -10,8 +11,8 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<RegistrationForm/>}/>
-        <Route path='login' element={<Login/>}/>
-
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
       </Routes>
       </BrowserRouter>
 
