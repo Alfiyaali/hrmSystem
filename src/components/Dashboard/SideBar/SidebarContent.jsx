@@ -1,12 +1,17 @@
 import React from 'react'
+
+import Logo from '../../images/bg-image.jpg'
+
 import Logo from '../../../assets/images/bg-images.jpg'
 import DashDropDown from '../Dropdown/DashDropDown'
+
 function SidebarContent({ isOpen }) {
     return (
       <aside
         className={`lg:w-64 lg:block ${
           isOpen ? 'block' : 'hidden'
-        } fixed lg:relative inset-y-0 left-0 bg-white dark:bg-white z-50 overflow-y-auto transition duration-300 ease-in-out bg-slate-200`}
+
+        } fixed lg:relative inset-y-0 left-0 bg-white-300 dark:bg-white z-50 overflow-y-auto transition duration-300 ease-in-out bg-slate-200`}
         aria-label="Sidebar"
       >
         {/* Your existing sidebar content */}

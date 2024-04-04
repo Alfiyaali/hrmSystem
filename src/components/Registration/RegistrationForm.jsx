@@ -1,6 +1,14 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
+
+import { Link } from "react-router-dom";
+import BackgroundImage from "../images/bg-image.jpg";
+
+
+=======
 import BackgroundImage from "../images/bg-image.jpg";
 import { Link } from "react-router-dom";
+>>>>>>> 9b97a57844308b1b0ec30a6a3ed584c73521b87c
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
