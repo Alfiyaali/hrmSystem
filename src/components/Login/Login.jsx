@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import BackgroundImage from "../images/bg-image.jpg";
+<<<<<<< HEAD
+=======
+import { Link } from "react-router-dom";
+
+>>>>>>> 9b97a57844308b1b0ec30a6a3ed584c73521b87c
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -129,8 +134,8 @@ function Login() {
               </label>
             </div> */}
             <div className="mt-2">
-              <button type="submit" className="px-8 py-2 bg-sky-400 text-white">
-                Login
+              <button type="submit" className="px-8 py-2 bg-sky-400 rounded-md text-white">
+              <Link to="/dashboard"> Login</Link>
               </button>
 
              <a href="/" className="text-xs text-blue-500 ml-10">Don't have an account?

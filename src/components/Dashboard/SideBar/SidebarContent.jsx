@@ -1,11 +1,20 @@
 import React from 'react'
+<<<<<<< HEAD
 import Logo from '../../images/bg-image.jpg'
+=======
+import Logo from '../../../assets/images/bg-images.jpg'
+
+>>>>>>> 9b97a57844308b1b0ec30a6a3ed584c73521b87c
 function SidebarContent({ isOpen }) {
     return (
       <aside
         className={`lg:w-64 lg:block ${
           isOpen ? 'block' : 'hidden'
+<<<<<<< HEAD
         } fixed lg:relative inset-y-0 left-0 bg-white-300 dark:bg-white z-50 overflow-y-auto transition duration-300 ease-in-out bg-slate-200`}
+=======
+        } fixed lg:relative inset-y-0 left-0 bg-white dark:bg-white z-50 overflow-y-auto transition duration-300 ease-in-out bg-slate-200`}
+>>>>>>> 9b97a57844308b1b0ec30a6a3ed584c73521b87c
         aria-label="Sidebar"
       >
         {/* Your existing sidebar content */}
