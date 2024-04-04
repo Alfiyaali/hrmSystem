@@ -11,7 +11,7 @@ function Sidebar() {
     };
   
     return (
-      <div className="relative bg-slate-200	">
+      <div className="relative bg-slate-200	w-64">
         <MobileToggle isOpen={isOpen} toggleSidebar={toggleSidebar} />
         <SidebarContent isOpen={isOpen} />
         <Overlay isOpen={isOpen} toggleSidebar={toggleSidebar} />

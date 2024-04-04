@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../../assets/images/bg-images.jpg'
-
+import DashDropDown from '../Dropdown/DashDropDown'
 function SidebarContent({ isOpen }) {
     return (
       <aside
@@ -27,90 +27,16 @@ function SidebarContent({ isOpen }) {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-white"
+                className="w-full flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-white"
               >
         
                 {/* Text */}
-                <span className="ml-3">Dashboard</span>
+                <span className="ml-3 w-full"> <DashDropDown /></span>
               </a>
             </li>
 
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-white"
-              >
-        
-                {/* Text */}
-                <span className="ml-3">Super Admin</span>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-white"
-              >
-        
-                {/* Text */}
-                <span className="ml-3">Employee</span>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-white"
-              >
-        
-                {/* Text */}
-                <span className="ml-3">Project</span>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-white"
-              >
-        
-                {/* Text */}
-                <span className="ml-3">Payroll</span>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-white"
-              >
-        
-                {/* Text */}
-                <span className="ml-3">Clients</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-white"
-              >
-        
-                {/* Text */}
-                <span className="ml-3">Teams</span>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-white"
-              >
-        
-                {/* Text */}
-                <span className="ml-3">Settings</span>
-              </a>
-            </li>
-            {/* Other sidebar items */}
+  
+            
           </ul>
         </div>
       </aside>
